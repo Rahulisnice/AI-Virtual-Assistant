@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import authBg from "../assets/authBg.png";
 import axios from "axios";
-import { userDataContext } from "../context/userContext";
+import { userDataContext } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
@@ -13,7 +13,7 @@ const SignUp = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
-  const { serverUrl, userData, setUserData } = useContext(userDataContext);
+  const { serverUrl, setUserData } = useContext(userDataContext);
 
   const handleSignUp = async (e) => {
     e.preventDefault();

@@ -10,7 +10,7 @@ const UserContext = ({ children }) => {
   const [backendImage, setBackendImage] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const handleCurrentUser = async (req, res) => {
+  const handleCurrentUser = async () => {
     try {
       const result = await axios.get(`${serverUrl}/api/person/current`, {
         withCredentials: true,
