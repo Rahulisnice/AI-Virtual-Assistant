@@ -12,7 +12,7 @@ await connectDb();
 const app = express();
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://ai-virtual-agent-frontend.onrender.com",
     credentials: true,
   })
 );
