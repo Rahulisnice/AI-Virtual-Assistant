@@ -12,7 +12,7 @@ const Home = () => {
   const { userData, serverUrl, setUserData, getGeminiResponse } =
     useContext(userDataContext);
   const navigate = useNavigate();
-  const [setListening] = useState(false);
+  const [listening, setListening] = useState(false);
   const [userText, setUserText] = useState("");
   const [aiText, setAiText] = useState("");
   const isSpeakingRef = useRef(false);
@@ -23,7 +23,7 @@ const Home = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.get(`${serverUrl}/api/user/logout`, {
+      const result = await axios.get(`${serverUrl}/api/user/logout`, {
         withCredentials: true,
       });
       setUserData(null);
@@ -103,6 +103,7 @@ const Home = () => {
   };
 
   useEffect(() => {
+    if (!userData) return;
     const SpeechRecognition =
       window.SpeechRecognition || window.webkitSpeechRecognition;
     const recognition = new SpeechRecognition();
