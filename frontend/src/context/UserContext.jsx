@@ -4,8 +4,7 @@ import axios from "axios";
 export const userDataContext = createContext();
 
 const UserContext = ({ children }) => {
-  const serverUrl =
-    "ai-virtual-assistant-qnwt5iar6-rahul-yadavs-projects-325ccd1c.vercel.app";
+  const serverUrl = "https://ai-virtual-assistant-kp1s.onrender.com";
   const [userData, setUserData] = useState(null);
   const [frontendImage, setFrontendImage] = useState(null);
   const [backendImage, setBackendImage] = useState(null);
