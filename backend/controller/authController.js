@@ -36,8 +36,8 @@ export const signUp = async (req, res) => {
     res.cookie("token", token, {
       httpOnly: true,
       expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-      sameSite: "strict",
-      secure: false,
+      sameSite: "None",
+      secure: true,
     });
 
     await newUser.save();
@@ -61,6 +61,14 @@ export const signIn = async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch)
       return res.status(400).json({ message: "Invalid credentials" });
+
+    const token = await generatedToken(newUser._id);
+    res.cookie("token", token, {
+      httpOnly: true,
+      expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+      sameSite: "None",
+      secure: true,
+    });
 
     res.status(200).json({ message: "User signIn successfully" });
   } catch (error) {

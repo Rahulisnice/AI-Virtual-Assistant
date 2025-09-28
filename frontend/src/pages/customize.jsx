@@ -15,7 +15,6 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 const customize = () => {
   const navigate = useNavigate();
   const {
-    backendImage,
     setBackendImage,
     frontendImage,
     setFrontendImage,

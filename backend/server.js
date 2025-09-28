@@ -5,7 +5,6 @@ import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import geminiResponse from "./gemini.js";
 
 dotenv.config();
 await connectDb();
