@@ -8,7 +8,7 @@ import { userDataContext } from "./context/UserContext";
 import Home from "./pages/Home";
 
 const App = () => {
-  const { userData, setUserData } = useContext(userDataContext);
+  const { userData } = useContext(userDataContext);
   return (
     <Routes>
       <Route

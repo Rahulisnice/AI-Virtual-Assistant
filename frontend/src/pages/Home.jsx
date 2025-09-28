@@ -12,7 +12,7 @@ const Home = () => {
   const { userData, serverUrl, setUserData, getGeminiResponse } =
     useContext(userDataContext);
   const navigate = useNavigate();
-  const [listening, setListening] = useState(false);
+  const [setListening] = useState(false);
   const [userText, setUserText] = useState("");
   const [aiText, setAiText] = useState("");
   const isSpeakingRef = useRef(false);
@@ -23,7 +23,7 @@ const Home = () => {
 
   const handleLogout = async () => {
     try {
-      const result = await axios.get(`${serverUrl}/api/user/logout`, {
+      await axios.get(`${serverUrl}/api/user/logout`, {
         withCredentials: true,
       });
       setUserData(null);
